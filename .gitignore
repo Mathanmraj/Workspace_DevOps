@@ -1,0 +1,30 @@
+# Jenkins backup
+jenkins_home_backup.tar.gz
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+
+# Ansible
+*.retry
+
+# Secrets
+.env
+*.pem
+*.key
+*.pfx
+*.p12
+
+# SSH
+id_rsa
+id_ed25519
+known_hosts
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
