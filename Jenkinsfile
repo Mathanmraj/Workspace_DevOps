@@ -57,11 +57,32 @@ pipeline {
                     steps {
                         dir('Terraform') {
                             sh '''
-                                echo "===== Terraform Plan ====="
-                                terraform plan -input=false -no-color
+                                set -eu
+
+                                echo "===== Generate Terraform Plan ====="
+                                terraform plan \
+                                    -input=false \
+                                    -no-color \
+                                    -out=tfplan
+
+                                echo "===== Generate Readable Plan Report ====="
+                                terraform show -no-color tfplan > tfplan.txt
+
+                                echo "===== Terraform Plan Summary ====="
+                                tail -n 20 tfplan.txt
                             '''
                         }
                     }
+                }
+            }
+
+            post {
+                success {
+                    archiveArtifacts(
+                        artifacts: 'Terraform/tfplan.txt',
+                        fingerprint: true
+                    )
+                    echo 'Terraform plan report archived successfully.'
                 }
             }
         }

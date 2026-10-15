@@ -34,3 +34,7 @@ Jenkins_Agent/original-agent-inspect.json
 
 # Local Jenkinsfile backup
 Jenkinsfile.backup
+
+# Terraform generated plan files
+Terraform/tfplan
+Terraform/tfplan.txt
