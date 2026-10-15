@@ -28,3 +28,9 @@ known_hosts
 Thumbs.db
 .vscode/
 .idea/
+
+# Local Jenkins agent backup containing sensitive runtime configuration
+Jenkins_Agent/original-agent-inspect.json
+
+# Local Jenkinsfile backup
+Jenkinsfile.backup
